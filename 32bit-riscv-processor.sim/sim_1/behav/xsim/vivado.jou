@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Fri Sep 20 16:43:12 2024
+# Process ID: 11676
+# Current directory: C:/Users/aa09303/Desktop/CA/32bit-riscv-processor/32bit-riscv-processor.sim/sim_1/behav/xsim
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent19812 C:\Users\aa09303\Desktop\CA\32bit-riscv-processor\32bit-riscv-processor.sim\sim_1\behav\xsim\testbench_multiplexer_behav.wdb
+# Log file: C:/Users/aa09303/Desktop/CA/32bit-riscv-processor/32bit-riscv-processor.sim/sim_1/behav/xsim/vivado.log
+# Journal file: C:/Users/aa09303/Desktop/CA/32bit-riscv-processor/32bit-riscv-processor.sim/sim_1/behav/xsim\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_wave_database {C:\Users\aa09303\Desktop\CA\32bit-riscv-processor\32bit-riscv-processor.sim\sim_1\behav\xsim\testbench_multiplexer_behav.wdb}
+close_sim

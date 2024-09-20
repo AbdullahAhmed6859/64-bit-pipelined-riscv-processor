@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/aa09303/Desktop/CA/32bit-riscv-processor/32bit-riscv-processor.srcs/Lab-5/sources/data_extractor.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_extractor
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/aa09303/Desktop/CA/32bit-riscv-processor/32bit-riscv-processor.srcs/Lab-5/simulators/testbench_data_extractor.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module testbench_data_extractor

@@ -1,0 +1,10 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../32bit-riscv-processor.srcs/Lab-5/sources/data_extractor.v" \
+"../../../../32bit-riscv-processor.srcs/Lab-5/simulators/testbench_data_extractor.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
