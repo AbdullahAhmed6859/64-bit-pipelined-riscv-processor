@@ -10,7 +10,7 @@ reg carry_in;
 wire [7:0] result;
 wire carry_out;
 
-alu_8bit x1(a, b, alu_op, carry_in, result, carry_out);
+alu_8bit x1(a, b, alu_op, carry_in, carry_out, result);
 
 initial
 begin

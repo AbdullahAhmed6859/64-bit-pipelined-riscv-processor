@@ -1,18 +1,18 @@
 `timescale 1ns / 1ps
 
-module tb_64bit(
-    );
-reg [63:0] a, b;
+module tb_64bit;
+
+reg [63:0] a;
+reg [63:0] b;
 reg [3:0] alu_op;
-wire [63:0] result;
 wire zero;
+wire [63:0] result;
 
-alu_64bit x1 (a, b, alu_op, result, zero);
+alu_64bit x1 (a, b, alu_op, zero, result);
 
-initial
-begin
-a = 64'h0000_0000_0000_0200; // 512 
-a = 64'h0000_0000_0000_0100; // 256
+initial begin
+a = 16'h0000000000000200; // 512 
+b = 16'h0000000000000100; // 256
 
 //Case for And
 alu_op = 4'b0000;
@@ -34,5 +34,4 @@ alu_op = 4'b0110;
 alu_op = 4'b1100;
 
 end
-
 endmodule

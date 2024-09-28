@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module testbench_multiplexer(
+module tb_multiplexer(
     );
     reg [63:0] a;
     reg [63:0] b;

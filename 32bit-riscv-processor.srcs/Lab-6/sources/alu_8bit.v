@@ -5,8 +5,8 @@ module alu_8bit(
     input [7:0] b,
     input [3:0] alu_op,
     input carry_in,
-    output [7:0] result,
-    output carry_out
+    output carry_out,
+    output [7:0] result
     );
     
     wire carry_out1, carry_out2, carry_out3, carry_out4, carry_out5, carry_out6, carry_out7;

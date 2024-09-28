@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module testbench_ins_par(
+module tb_ins_par(
     );
     
     reg [31:0] instruction;

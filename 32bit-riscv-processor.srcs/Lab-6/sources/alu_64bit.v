@@ -30,11 +30,8 @@ module alu_64bit(
             4'b1100: begin
                 result = ~( a | b);
             end
-            default: begin
-                result = 64'b0;
-            end
         endcase 
            
     end   
-     assign zero = result == 64'b0 ? 0 : 1;
+    assign zero = result == 64'b0 ? 1 : 0;
 endmodule

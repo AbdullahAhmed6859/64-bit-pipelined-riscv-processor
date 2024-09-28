@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module testbench_data_extractor(
+module tb_data_extractor(
     );
     
     reg [31:0] instruction;
