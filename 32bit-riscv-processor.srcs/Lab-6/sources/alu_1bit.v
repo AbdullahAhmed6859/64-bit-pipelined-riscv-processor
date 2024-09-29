@@ -27,31 +27,17 @@ module alu_1bit(
     assign adder_out = mux_1_out + mux_2_out + carry_in;
     
 //     determine the value of rsult and carry out based on opreation
-    assign result = operation == 2'b00 ? 
-        and_out : operation == 2'b01 ? 
-        or_out : operation == 2'b10 ? 
-        adder_out : 1'b0;
+    assign result =
+        operation == 2'b00 ? and_out:
+        operation == 2'b01 ? or_out:
+        operation == 2'b10 ? adder_out: 
+        1'b0;
     
-    assign carry_out = operation == 2'b10 ? (mux_1_out & carry_in) | (mux_2_out & carry_in) | (mux_1_out & mux_2_out) : 0;
-
-// use with reg outputs
-//    always @(*) begin
-
-//        case (operation)
-//            2'b00: begin
-//                result = and_out;
-//            end
-//            2'b01: begin
-//                result = or_out;
-//            end
-//            2'b10: begin
-//                result = adder_out;
-//                carry_out = (mux_1_out & carry_in) | (mux_2_out & carry_in) | (mux_1_out & mux_2_out);
-//            end
-//            default: begin
-//                   result = 1'b0;
-//            end
-//        endcase
-//    end
+    assign carry_out =
+        operation == 2'b10 ? 
+        (mux_1_out & carry_in) |
+        (mux_2_out & carry_in) |
+        (mux_1_out & mux_2_out)
+        : 1'b0;
     
 endmodule

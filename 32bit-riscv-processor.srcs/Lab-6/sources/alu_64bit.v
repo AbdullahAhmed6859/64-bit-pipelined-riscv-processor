@@ -7,31 +7,16 @@ module alu_64bit(
     output zero,
     output reg [63:0] result
     );
-    
+
     always @(*) begin
         case (alu_op)
-            // perform and
-            4'b0000: begin
-                result = a & b;
-            end
-            // perform or
-            4'b0001: begin
-                result = a | b;
-            end
-            // perform add
-            4'b0010: begin
-                result = a + b;
-            end
-            // perform subtract
-            4'b0110: begin
-                result = a - b;
-            end
-            // perform nor
-            4'b1100: begin
-                result = ~( a | b);
-            end
-        endcase 
-           
-    end   
-    assign zero = result == 64'b0 ? 1 : 0;
+            4'b0000: result = a & b;  // AND
+            4'b0001: result = a | b;  // OR
+            4'b0010: result = a + b;  // ADD
+            4'b0110: result = a - b;  // SUBTRACT
+            4'b1100: result = ~(a | b);  // NOR
+        endcase
+    end
+
+    assign zero = ~(|result);
 endmodule
