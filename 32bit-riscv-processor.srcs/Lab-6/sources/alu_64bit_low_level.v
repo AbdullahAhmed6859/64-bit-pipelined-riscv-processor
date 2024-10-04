@@ -22,6 +22,6 @@ module alu_64bit_low_level(
     endgenerate
     
     // no carry out
-    alu_1bit alu63 (a[63], b[63], alu_op, carry[62], , result[63]);
+    alu_1bit alu63 (a[63], b[63], alu_op, carry[62], carry[63], result[63]);
 
 endmodule
