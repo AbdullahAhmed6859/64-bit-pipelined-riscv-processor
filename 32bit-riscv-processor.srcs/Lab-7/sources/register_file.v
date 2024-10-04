@@ -19,19 +19,19 @@ module register_file(
             registers[i] = 64'b0 + i;
     
     
-    always @(posedge clk) begin
+    always @(posedge clk)
+        if (reg_write)
+            registers[rd] <= write_data;
+    
+    
+    always @(reset or rs1 or rs2 or registers) begin
         if (~reset) begin
             read_data_1 <= registers[rs1];
             read_data_2 <= registers[rs2];
-            if (reg_write) begin 
-                registers[rd] <= write_data;
-            end
+        end else begin
+            read_data_1 <= 64'b0;
+            read_data_2 <= 64'b0;
         end
-    end
-    
-    always @(posedge reset) begin
-        read_data_1 <= 64'b0;
-        read_data_2 <= 64'b0;
-    end
+    end 
     
 endmodule
