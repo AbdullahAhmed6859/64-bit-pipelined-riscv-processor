@@ -5,9 +5,36 @@ module data_memory(
     input clk,
     input mem_write,
     input mem_read,
-    output reg [63:0] read_data
+    output [63:0] read_data
 );
+reg [7:0] memory [63:0];
+integer i;
+initial begin 
+for (i =0; i < 64; i=i+1) begin
+        memory[i] = 8'b0+i;
+    end
+end
 
 
+assign read_data[7:0] = mem_read? memory[mem_addr]: 0;
+assign read_data[15:8] = mem_read? memory[mem_addr+1]: 0;
+assign read_data[23:16] = mem_read? memory[mem_addr+2]: 0;
+assign read_data[31:24] = mem_read? memory[mem_addr+3]: 0;
+assign read_data[39:32] = mem_read? memory[mem_addr+4]: 0;
+assign read_data[47:40] = mem_read? memory[mem_addr+5]: 0;
+assign read_data[55:48] = mem_read? memory[mem_addr+6]: 0;
+assign read_data[63:56] = mem_read? memory[mem_addr+7]: 0;
 
+always @(posedge clk) begin
+    if (mem_write) begin
+        memory[mem_addr] = write_data[7:0];
+        memory[mem_addr+1] = write_data[15:8];
+        memory[mem_addr+2] = write_data[23:16];
+        memory[mem_addr+3] = write_data[31:24];
+        memory[mem_addr+4] = write_data[39:32];
+        memory[mem_addr+5] = write_data[47:40];
+        memory[mem_addr+6] = write_data[55:48];
+        memory[mem_addr+7] = write_data[63:56];
+    end
+end
 endmodule
