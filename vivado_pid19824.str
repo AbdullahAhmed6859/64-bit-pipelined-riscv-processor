@@ -1,0 +1,108 @@
+/*
+
+Xilinx Vivado v2020.1 (64-bit) [Major: 2020, Minor: 1]
+SW Build: 2902540 on Wed May 27 19:54:49 MDT 2020
+IP Build: 2902112 on Wed May 27 22:43:36 MDT 2020
+
+Process ID (PID): 19824
+License: Customer
+
+Current time: 	Fri Nov 08 14:22:27 PKT 2024
+Time zone: 	Pakistan Standard Time (Asia/Karachi)
+
+OS: Windows 10
+OS Version: 10.0
+OS Architecture: amd64
+Available processors (cores): 8
+
+Screen size: 3840x2160
+Screen resolution (DPI): 250
+Available screens: 1
+Default font: family=Segoe UI,name=Segoe UI,style=plain,size=30
+
+Java version: 	9.0.4 64-bit
+Java home: 	C:/Xilinx/Vivado/2020.1/tps/win64/jre9.0.4
+Java executable location: 	C:/Xilinx/Vivado/2020.1/tps/win64/jre9.0.4/bin/java.exe
+Java initial memory (-Xms): 	128 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	Sufyan
+User home directory: C:/Users/Sufyan
+User working directory: C:/Users/Sufyan/Desktop/64-bit-pipelined-riscv-processor
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: C:/Xilinx/Vivado
+HDI_APPROOT: C:/Xilinx/Vivado/2020.1
+RDI_DATADIR: C:/Xilinx/Vivado/2020.1/data
+RDI_BINDIR: C:/Xilinx/Vivado/2020.1/bin
+
+Vivado preferences file location: C:/Users/Sufyan/AppData/Roaming/Xilinx/Vivado/2020.1/vivado.xml
+Vivado preferences directory: C:/Users/Sufyan/AppData/Roaming/Xilinx/Vivado/2020.1/
+Vivado layouts directory: C:/Users/Sufyan/AppData/Roaming/Xilinx/Vivado/2020.1/data/layouts
+PlanAhead jar file location: 	C:/Xilinx/Vivado/2020.1/lib/classes/planAhead.jar
+Vivado log file location: 	C:/Users/Sufyan/Desktop/64-bit-pipelined-riscv-processor/vivado.log
+Vivado journal file location: 	C:/Users/Sufyan/Desktop/64-bit-pipelined-riscv-processor/vivado.jou
+Engine tmp dir: 	C:/Users/Sufyan/Desktop/64-bit-pipelined-riscv-processor/.Xil/Vivado-19824-Sufyan
+
+Xilinx Environment Variables
+----------------------------
+XILINX: C:/Xilinx/Vivado/2020.1/ids_lite/ISE
+XILINX_DSP: C:/Xilinx/Vivado/2020.1/ids_lite/ISE
+XILINX_PLANAHEAD: C:/Xilinx/Vivado/2020.1
+XILINX_VIVADO: C:/Xilinx/Vivado/2020.1
+XILINX_VIVADO_HLS: C:/Xilinx/Vivado/2020.1
+
+
+GUI allocated memory:	179 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 1,000 MB
+
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// bz (cs):  Open Project : addNotify
+// Opening Vivado Project: C:\Users\Sufyan\Desktop\64-bit-pipelined-riscv-processor\32bit-riscv-processor.xpr. Version: Vivado v2020.1 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project C:/Users/Sufyan/Desktop/64-bit-pipelined-riscv-processor/32bit-riscv-processor.xpr 
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_NEW
+// Tcl Message: open_project C:/Users/Sufyan/Desktop/64-bit-pipelined-riscv-processor/32bit-riscv-processor.xpr 
+// Tcl Message: INFO: [Project 1-313] Project file moved from 'C:/Users/aa09303/Desktop/CA/32bit-riscv-processor' since last save. 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified 
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 146 MB (+150646kb) [00:00:14]
+// [Engine Memory]: 1,000 MB (+896854kb) [00:00:14]
+// [GUI Memory]: 159 MB (+6062kb) [00:00:14]
+// WARNING: HEventQueue.dispatchEvent() is taking  2964 ms.
+// Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2020.1/data/ip'. 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,000 MB. GUI used memory: 91 MB. Current time: 11/8/24, 2:22:31 PM PKT
+// Tcl Message: open_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1015.645 ; gain = 0.000 
+// Project name: 32bit-riscv-processor; location: C:/Users/Sufyan/Desktop/64-bit-pipelined-riscv-processor; part: xc7a35tcpg236-1
+dismissDialog("Open Project"); // bz (cs)
+// Tcl Command: 'rdi::info_commands {device::*}'
+// Tcl Command: 'rdi::info_commands {debug::*}'
+// Tcl Command: 'rdi::info_commands {*}'
+// Tcl Message: update_compile_order -fileset sources_1 

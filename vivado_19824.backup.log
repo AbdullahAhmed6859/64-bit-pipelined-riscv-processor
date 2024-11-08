@@ -1,0 +1,21 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Fri Nov  8 14:22:03 2024
+# Process ID: 19824
+# Current directory: C:/Users/Sufyan/Desktop/64-bit-pipelined-riscv-processor
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent14300 C:\Users\Sufyan\Desktop\64-bit-pipelined-riscv-processor\32bit-riscv-processor.xpr
+# Log file: C:/Users/Sufyan/Desktop/64-bit-pipelined-riscv-processor/vivado.log
+# Journal file: C:/Users/Sufyan/Desktop/64-bit-pipelined-riscv-processor\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/Sufyan/Desktop/64-bit-pipelined-riscv-processor/32bit-riscv-processor.xpr
+INFO: [Project 1-313] Project file moved from 'C:/Users/aa09303/Desktop/CA/32bit-riscv-processor' since last save.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2020.1/data/ip'.
+open_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1015.645 ; gain = 0.000
+update_compile_order -fileset sources_1

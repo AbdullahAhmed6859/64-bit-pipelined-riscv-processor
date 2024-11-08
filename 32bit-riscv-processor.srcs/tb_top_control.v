@@ -44,9 +44,6 @@ module tb_top_control(
     
     #500;
     
-//    //addi type
-//    opcode = 7'b0010011;
-//    #500;
 
     end 
 endmodule
