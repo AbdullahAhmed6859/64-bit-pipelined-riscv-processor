@@ -14,14 +14,23 @@ module register_file(
     reg [63:0] registers [31:0];
     
     integer i;
-    initial
-        for (i = 0; i < 63; i = i + 1)
-            registers[i] = 64'b0 + i;
+    initial begin
+        // project
+        registers[0] = 0;
+        for (i = 1; i < 63; i = i + 1)
+            registers[i] = i + 1;
+            
+        // lab 
+//        for (i = 0; i < 63; i = i + 1)
+//            registers[i] = i;
+        
+    end
     
-    
-    always @(posedge clk)
+    always @(posedge clk) begin
+        registers[0] = 0;
         if (reg_write)
             registers[rd] <= write_data;
+    end
     
     
     always @(reset or rs1 or rs2 or registers) begin
