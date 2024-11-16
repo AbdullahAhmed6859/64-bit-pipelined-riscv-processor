@@ -6,9 +6,9 @@ module tb_risc_v();
     risc_v rv(clk, reset);
     
     initial begin
-        reset = 0;
+        reset = 1;
         clk = 0;
-//        #500 reset = 0;
+        #199 reset = 0;
     end
     always # 100 clk = ~clk;
     

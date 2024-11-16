@@ -18,7 +18,7 @@ module register_file(
         // project
         registers[0] = 0;
         for (i = 1; i < 63; i = i + 1)
-            registers[i] = i + 1;
+            registers[i] = i + 64'b1;
             
         // lab 
 //        for (i = 0; i < 63; i = i + 1)

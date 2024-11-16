@@ -11,19 +11,19 @@ reg [7:0] memory [63:0];
 integer i;
 initial begin 
 for (i =0; i < 64; i=i+1) begin
-        memory[i] = 8'b0+i;
+        memory[i] = 64'b0 + i;
     end
 end
 
 
-assign read_data[7:0] = mem_read? memory[mem_addr]: 0;
-assign read_data[15:8] = mem_read? memory[mem_addr+1]: 0;
-assign read_data[23:16] = mem_read? memory[mem_addr+2]: 0;
-assign read_data[31:24] = mem_read? memory[mem_addr+3]: 0;
-assign read_data[39:32] = mem_read? memory[mem_addr+4]: 0;
-assign read_data[47:40] = mem_read? memory[mem_addr+5]: 0;
-assign read_data[55:48] = mem_read? memory[mem_addr+6]: 0;
-assign read_data[63:56] = mem_read? memory[mem_addr+7]: 0;
+assign read_data[7:0] = mem_read? memory[mem_addr]: 8'bx;
+assign read_data[15:8] = mem_read? memory[mem_addr+1]: 8'bx;
+assign read_data[23:16] = mem_read? memory[mem_addr+2]: 8'bx;
+assign read_data[31:24] = mem_read? memory[mem_addr+3]: 8'bx;
+assign read_data[39:32] = mem_read? memory[mem_addr+4]: 8'bx;
+assign read_data[47:40] = mem_read? memory[mem_addr+5]: 8'bx;
+assign read_data[55:48] = mem_read? memory[mem_addr+6]: 8'bx;
+assign read_data[63:56] = mem_read? memory[mem_addr+7]: 8'bx;
 
 always @(posedge clk) begin
     if (mem_write) begin

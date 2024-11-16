@@ -28,7 +28,7 @@ wire [63:0] branch_ins_address;
 wire [3:0] operation;
 wire [63:0] alu_second_operand;
 wire zero;
-wire [63:0] mem_address;
+wire [63:0] alu_result;
 wire [63:0] read_data;
 wire [63:0] write_data;
 
@@ -42,10 +42,10 @@ adder_64 add_1 (pc_out, 4, next_ins_address);
 adder_64 add_2 (pc_out, imm << 1 , branch_ins_address);
 alu_control ac (alu_op, {instruction[30], instruction[14:12]}, operation);
 multiplexer reg_mux (rs2_data, imm, alu_src, alu_second_operand);
-alu_64bit alu (rs1_data,alu_second_operand, operation, zero, mem_address);
+alu_64bit alu (rs1_data, alu_second_operand, operation, zero, alu_result);
 multiplexer pc_mux (next_ins_address, branch_ins_address, zero & branch, pc_in);
-data_memory dm (mem_address, rs2_data, clk, mem_write, mem_read, read_data);
-multiplexer mem_mux (read_data, mem_address, mem_to_reg, write_data);
+data_memory dm (alu_result, rs2_data, clk, mem_write, mem_read, read_data);
+multiplexer mem_mux (alu_result, read_data, mem_to_reg, write_data);
 
 
 endmodule
