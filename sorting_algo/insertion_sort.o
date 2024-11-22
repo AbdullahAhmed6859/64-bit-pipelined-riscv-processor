@@ -1,0 +1,59 @@
+# Initialize array in memory
+li t0, 1
+sw t0, 0x100(x0)    # arr[0] = 1
+li t0, 2
+sw t0, 0x104(x0)    # arr[1] = 2
+li t0, 5
+sw t0, 0x108(x0)    # arr[2] = 5
+li t0, 6
+sw t0, 0x10c(x0)    # arr[3] = 6
+
+li a0, 0x100        # Base address of array
+li a1, 4            # Array length
+jal ra, insertion_sort
+j exit
+
+insertion_sort:
+    li t0, 1           # i = 1 (start from second element)
+    
+outer_loop:
+    bge t0, a1, sort_done    # Exit if i >= array length
+    
+    # Load key value early to avoid pipeline stall
+    slli t1, t0, 2     # t1 = i * 4
+    add t1, t1, a0     # t1 = address of arr[i]
+    lw t2, 0(t1)       # key = arr[i] (loaded early)
+    
+    addi t3, t0, -1    # j = i - 1
+    
+inner_loop:
+    bltz t3, insert_element  # Exit if j < 0
+    
+    # Load comparison value early
+    slli t4, t3, 2     # t4 = j * 4
+    add t4, t4, a0     # t4 = address of arr[j]
+    lw t5, 0(t4)       # t5 = arr[j] (loaded early)
+    
+    # Compare and shift in separate operations to reduce dependencies
+    ble t5, t2, insert_element
+    
+    # Shift element right (store can execute while next load is happening)
+    sw t5, 4(t4)       # arr[j + 1] = arr[j]
+    
+    addi t3, t3, -1    # j--
+    j inner_loop
+    
+insert_element:
+    # Calculate insertion position (can be done in parallel with previous ops)
+    addi t3, t3, 1     # j++
+    slli t4, t3, 2
+    add t4, t4, a0
+    sw t2, 0(t4)       # arr[j] = key
+    
+    addi t0, t0, 1     # i++
+    j outer_loop
+    
+sort_done:
+    jalr x0, 0(ra)     # return to caller
+
+exit:
