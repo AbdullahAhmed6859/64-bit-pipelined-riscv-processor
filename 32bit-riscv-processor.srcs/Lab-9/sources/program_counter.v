@@ -9,7 +9,7 @@ output reg [63:0] pc_out
 initial pc_out = 0;
 always @(posedge clk) begin
     if (~reset) begin
-        if (pc_in > 15)
+        if (pc_in > 119)
             pc_out = 0;
         else
             pc_out = pc_in;

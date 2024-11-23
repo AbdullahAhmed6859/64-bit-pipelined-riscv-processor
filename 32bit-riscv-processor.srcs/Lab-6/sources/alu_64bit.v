@@ -9,12 +9,13 @@ module alu_64bit(
 );
     
     assign result =
-        alu_op == 4'b0000 ? a & b:
-        alu_op == 4'b0001 ? a | b:
-        alu_op == 4'b0010 ? a + b:
-        alu_op == 4'b0110 ? a - b:
-        alu_op == 4'b110 ? ~(a | b):
-        0;
+        alu_op == 4'b0000 ? a & b: // AND
+        alu_op == 4'b0001 ? a | b: // OR
+        alu_op == 4'b0010 ? a + b: // ADD
+        alu_op == 4'b0110 ? a - b: // SUB
+        alu_op == 4'b1100 ? ~(a | b): // NOR
+        alu_op == 4'b1000 ? a << b: // SLLI
+        64'bx;
         
     assign zero = ~(|result);
 endmodule
