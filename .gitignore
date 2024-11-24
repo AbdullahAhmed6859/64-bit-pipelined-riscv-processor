@@ -5,3 +5,21 @@ vivado.jou
 32bit-riscv-processor.ip_user_files
 32bit-riscv-processor.sim
 
+# Ignore backup files
+vivado_*.backup.jou
+vivado_*.backup.log
+vivado_pid*.zip
+vivado_pid*.str
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore editor temporary files
+*.swp
+*.swo
+*.bak
+
+# Keep src and xpr files explicitly
+!32bit-riscv-processor.srcs/
+!32bit-riscv-processor.xpr
