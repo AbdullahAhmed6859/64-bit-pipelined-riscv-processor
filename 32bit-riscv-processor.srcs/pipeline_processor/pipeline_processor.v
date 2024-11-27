@@ -57,7 +57,7 @@ instruction_parser ip (ins_out_IF_ID, opcode, rd, func3, rs1, rs2, func7);
 control_unit cu (opcode, branch, mem_read, mem_to_reg, alu_op, mem_write, alu_src, reg_write);
 register_file rf (write_data, rs1, rs2, rd, reg_write_MEM_WB, clk, reset, rs1_data, rs2_data);
 data_extractor de (ins_out_IF_ID, imm);
-ID_EX id_ex (clk, reset, pc_out_IF_ID, rs1_data, rs2_data, imm, rd, rs1, rs2, {ins_out_IF_ID[30], ins_out_IF_ID[14:12]}, branch, mem_read, mem_to_reg, mem_write, alu_src, reg_write, alu_op, pc_out_ID_EX, rs1_ID_EX, rs2_ID_EX, rd_ID_EX, imm_ID_EX, read_data1_ID_EX, read_data2_ID_EX, funct_ID_EX, branch_ID_EX, mem_read_ID_EX, mem_to_reg_ID_EX, mem_write_ID_EX, alu_src_ID_EX, reg_write_ID_EX, alu_op_ID_EX); 
+ID_EX id_ex (clk, reset, pc_out_IF_ID, rs1_data, rs2_data, imm, rd, rs1, rs2, {ins_out_IF_ID[30], ins_out_IF_ID[14:12]}, branch, mem_read, mem_to_reg, mem_write, alu_src, reg_write, alu_op, pc_out_ID_EX, rs1_ID_EX, rs2_ID_EX, rd_ID_EX, imm_ID_EX, read_data1_ID_EX, read_data2_ID_EX, funct_ID_EX, branch_ID_EX, mem_read_ID_EX, mem_to_reg_ID_EX, mem_write_ID_EX,reg_write_ID_EX, alu_src_ID_EX, alu_op_ID_EX); 
 
 adder_64 add_2 (pc_out_ID_EX, imm_ID_EX << 1 , branch_ins_address);
 alu_control ac (alu_op_ID_EX, funct_ID_EX, operation);

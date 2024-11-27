@@ -26,9 +26,25 @@ module ID_EX(
       output reg Branch,Memread,Memtoreg, Memwrite, Regwrite,Alusrc, 
       output reg [1:0] aluop
     );
-    
+initial begin
+pc_out <= 64'b0;
+          rs1 <= 5'b0;
+          rs2 <= 5'b0;
+          rd <= 5'b0;
+          imm_data <= 64'b0;
+          readdata1 <= 64'b0;
+          readdata2 <= 64'b0;
+          funct_out <= 4'b0;
+          Branch <= 1'b0;
+          Memread <= 1'b0;
+          Memtoreg <=1'b0;
+          Memwrite <= 1'b0;
+          Regwrite <= 1'b0;
+          Alusrc <= 1'b0;
+          aluop <= 2'b0;
+end  
 
-always @ (posedge clk || reset)
+always @ (posedge clk)
     begin
       if (reset == 1'b1)
         begin
@@ -48,7 +64,7 @@ always @ (posedge clk || reset)
           Alusrc <= 1'b0;
           aluop <= 2'b0;
         end
-      else if (clk)
+      else
         begin
           pc_out <= pc_in;
           rs1 <= rs1_in;

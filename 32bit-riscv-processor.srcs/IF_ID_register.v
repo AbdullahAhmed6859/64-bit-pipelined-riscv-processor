@@ -14,12 +14,12 @@ module IF_ID_register(
     ins_out <= 0;
     end   
     
-    always @(posedge clk || reset) begin
+    always @(posedge clk) begin
     if (reset) begin
     pc_out <= 0;
     ins_out <= 0;
     end
-    else if (clk) begin
+    else begin
     pc_out <= pc_in;
     ins_out <= instruction;
     end

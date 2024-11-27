@@ -10,6 +10,6 @@ module tb_risc_v();
         clk = 0;
         #199 reset = 0;
     end
-    always # 100 clk = ~clk;
+    always #150 clk = ~clk;
     
 endmodule

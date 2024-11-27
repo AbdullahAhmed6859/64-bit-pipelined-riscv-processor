@@ -45,7 +45,7 @@ module data_extractor(
     // S-type instruction (if instruction[6:5] == 2'b01)
     wire [63:0] imm_s = {{52{instruction[31]}}, instruction[31:25], instruction[11:7]};
     // SB-type instruction (if instruction[6:5] == 2'b11)
-    wire [63:0] imm_sb = {{51{instruction[31]}}, instruction[31], instruction[30:25], instruction[11:8], instruction[7], 1'b0};
+    wire [63:0] imm_sb = {{52{instruction[31]}}, instruction[31],  instruction[7], instruction[30:25], instruction[11:8]};
 
     // Final imm based on instruction[6:5] using a mux structure
     assign imm = (instruction[6:5] == 2'b00) ? imm_i :

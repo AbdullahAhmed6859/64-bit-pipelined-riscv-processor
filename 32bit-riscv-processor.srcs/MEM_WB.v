@@ -11,8 +11,16 @@ module MEM_WB(
   output reg [4:0] rd,
   output reg Memtoreg, Regwrite
 );
-  
-  always @(posedge clk || reset)
+ 
+ 
+initial begin
+readdata <= 63'b0;
+          result_alu_out <= 63'b0;
+          rd <= 5'b0;
+          Memtoreg <= 1'b0;
+          Regwrite <= 1'b0;
+end
+  always @(posedge clk)
     begin
       if (reset == 1'b1)
         begin
@@ -23,7 +31,7 @@ module MEM_WB(
           Regwrite <= 1'b0;
           
         end
-      else if (clk)
+      else
         begin
          readdata <= read_data_in;
           result_alu_out <= result_alu_in;
