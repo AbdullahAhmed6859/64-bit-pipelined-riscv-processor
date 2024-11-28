@@ -36,7 +36,7 @@ wire pc_mux_sel;
 program_counter pc (pc_in, clk, reset, pc_out);
 instruction_memory im (pc_out, instruction);
 instruction_parser ip (instruction, opcode, rd, func3, rs1, rs2, func7);
-control_unit cu (opcode, branch, mem_read, mem_to_reg, alu_op, mem_write, alu_src, reg_write);
+control_unit cu (reset, opcode, branch, mem_read, mem_to_reg, alu_op, mem_write, alu_src, reg_write);
 register_file rf (write_data, rs1, rs2, rd, reg_write, clk, reset, rs1_data, rs2_data);
 data_extractor de (instruction, imm);
 adder_64 add_1 (pc_out, 4, next_ins_address);

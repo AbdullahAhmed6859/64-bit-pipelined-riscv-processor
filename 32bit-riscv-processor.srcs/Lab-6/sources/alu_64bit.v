@@ -15,7 +15,7 @@ module alu_64bit(
         alu_op == 4'b0110 ? a - b: // SUB
         alu_op == 4'b1100 ? ~(a | b): // NOR
         alu_op == 4'b1000 ? a << b: // SLLI
-        64'bx;
+        64'b0;
         
     assign zero = ~(|result);
 endmodule
