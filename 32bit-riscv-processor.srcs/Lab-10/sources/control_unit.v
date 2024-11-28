@@ -2,34 +2,96 @@
 
 module control_unit(
     input [6:0] opcode,
-    output branch,
-    output mem_read,
-    output mem_to_reg,
-    output [1:0] alu_op,
-    output mem_write,
-    output  alu_src,
-    output reg_write
+    input reset,
+    output reg branch,
+    output reg memread,
+    output reg memtoreg,
+    output reg [1:0] Aluop,
+    output reg memwrite,
+    output reg aluSrc,
+    output reg regwrite
+    
+  
 );
-    wire [7:0] outputs;
-    wire [2:0] opcode_3;
-//    assign opcode_3 = opcode[6:4];
-    
-    assign outputs =
-        opcode[6:4] == 3'b011 ? 8'b00100010: // R type
-        opcode[6:4] == 3'b000 ? 8'b11110000: // I type (ld)
-        opcode[6:4] == 3'b010 ? 8'b1x001000: // S type (sd)
-        opcode[6:4] == 3'b110 ? 8'b0x000101: // SB type
-        opcode[6:4] == 3'b001 ? 8'b10100010: // I type (all others)
-        8'bx;
-    
-    assign alu_op = outputs[1:0];
-    assign branch = outputs[2];
-    assign mem_write = outputs[3];
-    assign mem_read = outputs[4];
-    assign reg_write = outputs[5];
-    assign mem_to_reg = outputs[6];
-    assign alu_src = outputs[7];
-
-    
+ always @(*)
+     begin
+      
+      if (opcode == 7'b0000011)
+        begin
+          aluSrc <= 1'b1;
+          memtoreg <= 1'b1;
+          regwrite <= 1'b1;
+          memread <= 1'b1;
+          memwrite <= 1'b0;
+          branch <= 1'b0;
+          Aluop <=2'b00;
+        end
+      
+      else if (opcode == 7'b0100011)
+        begin
+          aluSrc <= 1'b1;
+          memtoreg <= 1'bx;
+          regwrite <= 1'b0;
+          memread <= 1'b0;
+          memwrite <= 1'b1;
+          branch <= 1'b0;
+          Aluop <=2'b00;
+        end
+      
+      else if (opcode == 7'b0110011)
+        begin
+          aluSrc <= 1'b0;
+          memtoreg <= 1'b0;
+          regwrite <= 1'b1;
+          memread <= 1'b0;
+          memwrite <= 1'b0;
+          branch <= 1'b0;
+          Aluop <=2'b10;
+        end
+      
+      else if (opcode == 7'b1100011)
+        begin
+          aluSrc <= 1'b0;
+          memtoreg <= 1'bx;
+          regwrite <= 1'b0;
+          memread <= 1'b0;
+          memwrite <= 1'b0;
+          branch <= 1'b1;
+          Aluop <=2'b01;
+        end
+      else if (opcode == 7'b0010011)
+        begin
+          aluSrc <= 1'b1;
+          memtoreg <= 1'b0;
+          regwrite <= 1'b1;
+          memread <= 1'b0;
+          memwrite <= 1'b0;
+          branch <= 1'b0;
+          Aluop <=2'b00;
+        end
+      
+      else //default case
+        begin
+          aluSrc <= 1'b0;
+          memtoreg <= 1'b0;
+          regwrite <= 1'b0;
+          memread <= 1'b0;
+          memwrite <= 1'b0;
+          branch <= 1'b0;
+          Aluop <=2'b00;
+        end
+      
+      if (reset == 1'b1)
+        begin
+          aluSrc <= 1'b0;
+          memtoreg <= 1'b0;
+          regwrite <= 1'b0;
+          memread <= 1'b0;
+          memwrite <= 1'b0;
+          branch <= 1'b0;
+          Aluop <=2'b00;
+        end
+ 
+    end
 endmodule
 

@@ -25,43 +25,43 @@ output reg [63:0] mux_out,
 output reg [4:0] rd_out
     );
     initial begin
-    mem_to_reg_out <= 0;
-    reg_write_out <= 0;
-    branch_out <= 0;
-    mem_write_out <= 0;
-    mem_read_out <= 0;
-    adder_out <= 0;
-    zero_out <= 0;
-    alu_result_out <= 0;
-    mux_out <= 0;
-    rd_out <= 0;
+    mem_to_reg_out = 0;
+    reg_write_out = 0;
+    branch_out = 0;
+    mem_write_out = 0;
+    mem_read_out = 0;
+    adder_out = 0;
+    zero_out = 0;
+    alu_result_out = 0;
+    mux_out = 0;
+    rd_out = 0;
     end   
     
     always @(posedge clk ) begin
     if (reset) begin
-    mem_to_reg_out <= 0;
-    reg_write_out <= 0;
-    branch_out <= 0;
-    mem_write_out <= 0;
-    mem_read_out <= 0;
-    adder_out <= 0;
-    zero_out <= 0;
-    alu_result_out <= 0;
-    mux_out <= 0;
-    rd_out <= 0;
+    mem_to_reg_out = 0;
+    reg_write_out = 0;
+    branch_out = 0;
+    mem_write_out = 0;
+    mem_read_out = 0;
+    adder_out = 0;
+    zero_out = 0;
+    alu_result_out = 0;
+    mux_out = 0;
+    rd_out = 0;
     
     end
     else begin
-    mem_to_reg_out <= mem_to_reg;
-    reg_write_out <= reg_write;
-    branch_out <= branch;
-    mem_write_out <= mem_write;
-    mem_read_out <= mem_read;
-    adder_out <= adder_in;
-    zero_out <= zero;
-    alu_result_out <= alu_result;
-    mux_out <= mux_in;
-    rd_out <= rd;
+    mem_to_reg_out = mem_to_reg;
+    reg_write_out = reg_write;
+    branch_out = branch;
+    mem_write_out = mem_write;
+    mem_read_out = mem_read;
+    adder_out = adder_in;
+    zero_out = zero;
+    alu_result_out = alu_result;
+    mux_out = mux_in;
+    rd_out = rd;
     end
     end
     

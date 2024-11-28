@@ -14,7 +14,7 @@ module alu_64bit(
         alu_op == 4'b0010 ? a + b:
         alu_op == 4'b0110 ? a - b:
         alu_op == 4'b110 ? ~(a | b):
-        0;
+        0;                                                                                                    
         
     assign zero = ~(|result);
 endmodule

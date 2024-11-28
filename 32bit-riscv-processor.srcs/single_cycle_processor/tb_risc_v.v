@@ -8,8 +8,8 @@ module tb_risc_v();
     initial begin
         reset = 1;
         clk = 0;
-        #199 reset = 0;
+        #10 reset = 0;
     end
-    always #150 clk = ~clk;
+    always #2 clk = ~clk;
     
 endmodule
