@@ -97,9 +97,12 @@ initial begin
 //        ins_mem[6] = 8'b0000000;
 //        ins_mem[5] = 8'b00000000;
 //        ins_mem[4] = 8'b00010011;
-       {ins_mem[3], ins_mem[2], ins_mem[1], ins_mem[0]} <= 32'h00820333;
-       {ins_mem[7], ins_mem[6], ins_mem[5], ins_mem[4]} <= 32'h00540533;
-       {ins_mem[11], ins_mem[10], ins_mem[9], ins_mem[8]} <= 32'h00538433;
+//       {ins_mem[3], ins_mem[2], ins_mem[1], ins_mem[0]} <= 32'h00820333;
+//       {ins_mem[7], ins_mem[6], ins_mem[5], ins_mem[4]} <= 32'h00540533;
+//       {ins_mem[11], ins_mem[10], ins_mem[9], ins_mem[8]} <= 32'h00538433;
+         {ins_mem[3], ins_mem[2], ins_mem[1], ins_mem[0]} <= 32'h00538433;
+         {ins_mem[7], ins_mem[6], ins_mem[5], ins_mem[4]} <= 32'h00540533;
+         {ins_mem[11], ins_mem[10], ins_mem[9], ins_mem[8]} <= 32'h00820333;
     end
 always @(*)
     begin
