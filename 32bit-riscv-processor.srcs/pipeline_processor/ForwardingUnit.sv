@@ -10,10 +10,10 @@ module ForwardingUnit
     output reg [1:0] Forward_A,
     output reg [1:0] Forward_B
  );
-  initial begin
-  assign Forward_A = 0;
-  assign Forward_B = 0;
-  end
+//  initial begin
+//  assign Forward_A = 0;
+//  assign Forward_B = 0;
+//  end
   always @(*)
     begin
     	if ( (rdMem == RS_1) & (regWrite_Mem != 0 & rdMem !=0))

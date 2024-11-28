@@ -56,6 +56,7 @@ wire [63:0] three_i_mux_out1, three_i_mux_out2;
 program_counter pc (pc_in, clk, reset, pc_out);
 multiplexer pc_mux (next_ins_address, adder_EX_MEM, zero_EX_MEM & branch_EX_MEM, pc_in);
 adder_64 add_1 (pc_out, 4, next_ins_address);
+instruction_memory im (clk, reset, pc_out, instruction);
 IF_ID_register if_id (clk, reset, pc_out, instruction, pc_out_IF_ID, ins_out_IF_ID);
 instruction_parser ip (ins_out_IF_ID, opcode, rd, func3, rs1, rs2, func7);
 control_unit cu (opcode,reset,branch, mem_read, mem_to_reg, alu_op, mem_write, alu_src, reg_write);
@@ -70,7 +71,7 @@ multiplexer reg_mux (three_i_mux_out2, imm_ID_EX, alu_src_ID_EX, alu_second_oper
 adder_64 add_2 (pc_out_ID_EX, imm_ID_EX << 1 , branch_ins_address);
 alu_control ac (alu_op_ID_EX, funct_ID_EX, operation);
 alu_64bit alu (three_i_mux_out1, alu_second_operand, operation, zero, alu_result);
-EX_MEM_register ex_mem (clk, reset, mem_to_reg_ID_EX, reg_write_ID_EX, branch_ID_EX, mem_write_ID_EX, mem_read_ID_EX, branch_ins_address, zero, alu_result, read_data2_ID_EX, rd_ID_EX, mem_to_reg_EX_MEM, reg_write_EX_MEM, branch_EX_MEM, mem_write_EX_MEM, mem_read_EX_MEM, adder_EX_MEM, zero_EX_MEM, alu_result_EX_MEM, mux_rd2_EX_MEM, rd_EX_MEM); 
+EX_MEM_register ex_mem (clk, reset, mem_to_reg_ID_EX, reg_write_ID_EX, branch_ID_EX, mem_write_ID_EX, mem_read_ID_EX, branch_ins_address, zero, alu_result, three_i_mux_out2, rd_ID_EX, mem_to_reg_EX_MEM, reg_write_EX_MEM, branch_EX_MEM, mem_write_EX_MEM, mem_read_EX_MEM, adder_EX_MEM, zero_EX_MEM, alu_result_EX_MEM, mux_rd2_EX_MEM, rd_EX_MEM); 
 
 
 data_memory dm (alu_result_EX_MEM, mux_rd2_EX_MEM, clk, mem_write_EX_MEM, mem_read_EX_MEM, read_data);
