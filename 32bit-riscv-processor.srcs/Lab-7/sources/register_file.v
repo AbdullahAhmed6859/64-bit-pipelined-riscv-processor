@@ -35,6 +35,7 @@ module register_file(
     
     
     always @(*) begin
+        registers[0] <= 0;
         if (~reset) begin
             read_data_1 <= registers[rs1];
             read_data_2 <= registers[rs2];

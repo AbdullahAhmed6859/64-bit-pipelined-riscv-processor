@@ -1,6 +1,7 @@
 `timescale 1ns / 1ps
 
 module control_unit(
+    input reset,
     input [6:0] opcode,
     output branch,
     output mem_read,
@@ -15,12 +16,13 @@ module control_unit(
 //    assign opcode_3 = opcode[6:4];
     
     assign outputs =
+        reset ? 0:
         opcode[6:4] == 3'b011 ? 8'b00100010: // R type
         opcode[6:4] == 3'b000 ? 8'b11110000: // I type (ld)
         opcode[6:4] == 3'b010 ? 8'b1x001000: // S type (sd)
         opcode[6:4] == 3'b110 ? 8'b0x000101: // SB type
         opcode[6:4] == 3'b001 ? 8'b10100010: // I type (all others)
-        8'bx;
+        0;
     
     assign alu_op = outputs[1:0];
     assign branch = outputs[2];
