@@ -9,17 +9,15 @@ output reg [63:0] pc_out
 initial pc_out = 0;
 always @(posedge clk) begin
     if (~reset) begin
-        if (pc_in > 3)
+        if (pc_in > 7)
             pc_out = 0;
         else
             pc_out = pc_in;
     end
 end
 
-always @(reset)
+always @(*)
     if (reset)
         pc_out = 0;
-
-
-
+        
 endmodule
