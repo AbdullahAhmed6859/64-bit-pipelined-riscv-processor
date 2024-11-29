@@ -67,7 +67,7 @@ module control_unit(
           memread <= 1'b0;
           memwrite <= 1'b0;
           branch <= 1'b0;
-          Aluop <=2'b00;
+          Aluop <=2'b10;
         end
       
       else //default case

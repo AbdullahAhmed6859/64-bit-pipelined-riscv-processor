@@ -33,13 +33,14 @@ module register_file(
     
     always @(*) begin
         if (~reset) begin
-            read_data_1 <= registers[rs1];
-            read_data_2 <= registers[rs2];
-        end else begin
+            read_data_1 <= (reg_write && (rs1 == rd)) ? write_data : registers[rs1];
+            read_data_2 <= (reg_write && (rs2 == rd)) ? write_data : registers[rs2];
+        end
+        else begin
             read_data_1 <= 64'b0;
             read_data_2 <= 64'b0;
         end
-    end 
+    end
     
     
  
