@@ -34,7 +34,7 @@ output reg [63:0] pc_out
 reg pc_s;
 always @(posedge clk or posedge reset) begin
     if (~reset) begin
-        if (pc_in > 11) begin
+        if (pc_in > 199) begin
             pc_out <= 0;
         end else begin
             if (~pc_s) begin
