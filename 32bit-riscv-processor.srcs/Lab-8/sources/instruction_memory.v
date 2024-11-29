@@ -97,13 +97,16 @@ initial begin
 //        ins_mem[6] = 8'b0000000;
 //        ins_mem[5] = 8'b00000000;
 //        ins_mem[4] = 8'b00010011;
-//       {ins_mem[3], ins_mem[2], ins_mem[1], ins_mem[0]} <= 32'h00820333;
-//       {ins_mem[7], ins_mem[6], ins_mem[5], ins_mem[4]} <= 32'h00540533;
-//       {ins_mem[11], ins_mem[10], ins_mem[9], ins_mem[8]} <= 32'h00538433;
-         {ins_mem[3], ins_mem[2], ins_mem[1], ins_mem[0]} <= 32'h00538433;
-         {ins_mem[7], ins_mem[6], ins_mem[5], ins_mem[4]} <= 32'h00540533;
-         {ins_mem[11], ins_mem[10], ins_mem[9], ins_mem[8]} <= 32'h00820333;
+//For testing forwarding unit
+// {ins_mem[3], ins_mem[2], ins_mem[1], ins_mem[0]} <= 32'h00628533;
+// {ins_mem[7], ins_mem[6], ins_mem[5], ins_mem[4]} <= 32'h005504b3;
+// {ins_mem[11], ins_mem[10], ins_mem[9], ins_mem[8]} <= 32'h00a305b3;
+ //For testing addi with forwarding unit
+ {ins_mem[3], ins_mem[2], ins_mem[1], ins_mem[0]} <= 32'h00a28513;
+ {ins_mem[7], ins_mem[6], ins_mem[5], ins_mem[4]} <= 32'h01450313;
+ {ins_mem[11], ins_mem[10], ins_mem[9], ins_mem[8]} <= 32'h00a38213;
     end
+    
 always @(*)
     begin
     if (reset)
