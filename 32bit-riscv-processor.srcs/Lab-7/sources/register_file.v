@@ -25,15 +25,13 @@ module register_file(
 //            registers[i] = i;
         
     end
-    
     always @(posedge clk) begin
-        registers[0] = 0;
         if (reg_write)
             registers[rd] <= write_data;
     end
     
     
-    always @(reset or rs1 or rs2 or registers) begin
+    always @(*) begin
         if (~reset) begin
             read_data_1 <= registers[rs1];
             read_data_2 <= registers[rs2];
@@ -43,4 +41,6 @@ module register_file(
         end
     end 
     
+    
+ 
 endmodule
